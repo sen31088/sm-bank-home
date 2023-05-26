@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sm-bank-config
+data:
+  MONGO_USER: ''
+  MONGO_PASS: ''
+  MONGO_HOST: '192.168.7.16'
+  MONGO_PORT: '27017'
+  MONGO_DB: smbank
+  URL: 'http://bank.testlab.com'
+  REDIS_CON: 'redis://redis-service.default.svc.cluster.local:6379/0'
+  REDIS_HOST: 'redis-service.default.svc.cluster.local'
+  REDIs_PORT: '6379'
+  SESSION_SECRET: 'secretkeyforsession'
