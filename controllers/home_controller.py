@@ -35,8 +35,9 @@ def home():
         Acc_no = userdata_found["Accno"]
         Acc_bal = userdata_found["Accbal"]
         email_id = userlogin_found["email"]
+        act_page = 'home'
         #print("NAme is: ", name)
-        return render_template('home.html', username_session = user_session, username = name, emailid = email_id, Accnumber = Acc_no, Accbalance = Acc_bal, logedin_user = user_session)
+        return render_template('home.html', active_page = act_page, username_session = user_session, username = name, emailid = email_id, Accnumber = Acc_no, Accbalance = Acc_bal, logedin_user = user_session)
 
 @home_ctrl.route('/admin',methods=["POST", "GET"])
 def admin():
@@ -68,7 +69,5 @@ def admin_home():
             suspended_status = 'Suspended'
             pending_users_count = Userdata.find_user_status(pending_status)
             suspended_users_count = Userdata.find_user_status(suspended_status)
-            #name = userdata_found["Name"]
-            print("pending_users_count: ", pending_users_count)
-            #print("NAme is: ", name)
-            return render_template('admin-home.html', username_session = user_session, totalusers = users_count, username = user_session, pendingusers = pending_users_count, suspendedusers = suspended_users_count , logedin_user = user_session)
+            act_page ='adminhome'
+            return render_template('admin-home.html', active_page = act_page, username_session = user_session, totalusers = users_count, username = user_session, pendingusers = pending_users_count, suspendedusers = suspended_users_count , logedin_user = user_session)
