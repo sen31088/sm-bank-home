@@ -6,7 +6,6 @@ import logging
 
 home_ctrl = Blueprint("home", __name__, static_folder='static', template_folder='templates')
 load_dotenv()
-app_url = os.getenv("URL")
 
 @home_ctrl.route('/',methods=["POST", "GET"])
 def index():
@@ -37,7 +36,7 @@ def home():
         Acc_bal = userdata_found["Accbal"]
         email_id = userlogin_found["email"]
         #print("NAme is: ", name)
-        return render_template('home.html', app_url = app_url, username_session = user_session, username = name, emailid = email_id, Accnumber = Acc_no, Accbalance = Acc_bal, logedin_user = user_session)
+        return render_template('home.html', username_session = user_session, username = name, emailid = email_id, Accnumber = Acc_no, Accbalance = Acc_bal, logedin_user = user_session)
 
 @home_ctrl.route('/admin',methods=["POST", "GET"])
 def admin():
